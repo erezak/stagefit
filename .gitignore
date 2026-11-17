@@ -1,0 +1,31 @@
+# macOS / editors
+.DS_Store
+.AppleDouble
+.LSOverride
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Swift / Xcode local state
+.build/
+.swiftpm/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.dSYM/
+
+# Generated binaries and archives
+/build/
+/dist/
+*.app/
+
+# Local-only configuration and signing secrets
+.env
+.env.*
+!.env.example
+*.p12
+*.p8
+*.mobileprovision
+*.cer
