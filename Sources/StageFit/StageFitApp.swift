@@ -80,12 +80,12 @@ final class StageFit: NSObject, NSApplicationDelegate, NSMenuDelegate {
             button.image = NSImage(systemSymbolName: "rectangle.inset.filled.on.rectangle",
                                    accessibilityDescription: "StageFit")
             if button.image == nil { button.title = "SF" }
-            button.toolTip = "StageFit: Fit beside Stage Manager"
+            button.toolTip = "StageFit: Fit or restore beside Stage Manager"
         }
 
         let menu = NSMenu()
         menu.delegate = self
-        let fit = NSMenuItem(title: "Fit Front Window", action: #selector(fitFrontWindow), keyEquivalent: "")
+        let fit = NSMenuItem(title: "Fit / Restore Front Window", action: #selector(fitFrontWindow), keyEquivalent: "")
         fit.target = self
         menu.addItem(fit)
         menu.addItem(NSMenuItem(title: "Shortcut: ⌃⌥⌘F", action: nil, keyEquivalent: ""))
@@ -95,7 +95,7 @@ final class StageFit: NSObject, NSApplicationDelegate, NSMenuDelegate {
         )
         replaceTitleBar.target = self
         replaceTitleBar.state = .off
-        replaceTitleBar.toolTip = "Double-click a standard title bar to fit beside Stage Manager."
+        replaceTitleBar.toolTip = "Double-click a standard title bar to fit or restore its window."
         replaceTitleBarMenuItem = replaceTitleBar
         menu.addItem(replaceTitleBar)
 
@@ -105,7 +105,7 @@ final class StageFit: NSObject, NSApplicationDelegate, NSMenuDelegate {
         )
         replaceGreen.target = self
         replaceGreen.state = .off
-        replaceGreen.toolTip = "A normal click fits the window; hold a modifier for native behavior."
+        replaceGreen.toolTip = "A normal click fits or restores the window; hold a modifier for native behavior."
         replaceGreenMenuItem = replaceGreen
         menu.addItem(replaceGreen)
         menu.addItem(.separator())

@@ -24,15 +24,17 @@ A small, native macOS menu-bar utility that fits the focused window beside Stage
 
 | Item / gesture | Default | Behavior |
 |---|---|---|
-| **Fit Front Window** | Available | Resizes the focused window beside the Stage Manager strip |
-| **Control + Option + Command + F** | Enabled | Global fit shortcut |
-| **Fit on Title Bar Double-Click** | On (new installs) | Replaces native double-click on recognized standard title bars |
-| **Replace Green Button Click** | Off | Optional click replacement; modifier-click remains native |
+| **Fit / Restore Front Window** | Available | Fit the focused window, or restore its previous frame if unchanged |
+| **Control + Option + Command + F** | Enabled | Global fit/restore shortcut |
+| **Fit on Title Bar Double-Click** | On (new installs) | Toggles fit/restore on recognized standard title bars |
+| **Replace Green Button Click** | Off | Optional fit/restore toggle; modifier-click remains native |
 | **Stage Manager Space** | 190 pt | Select reserved strip width (150–260 pt) |
 | **Launch at Login** | Off until enabled | macOS native login-item registration (approval may be required) |
 | **Accessibility Settings…** | Available | Opens macOS permission settings |
 | **About StageFit** | Available | Standard macOS About panel; version and Copyright © 2026 Erez Korn |
 | **Quit StageFit** | Available | Exits utility |
+
+**Fit/restore toggle:** The first activation saves the focused window's original position and size, then fits it beside Stage Manager. Activate again to restore the original frame. If the window has been manually moved or resized since StageFit last fitted it, its saved restore state is discarded; the next activation creates a new fit from the user-adjusted frame. Each window is tracked independently. Saved restore states are in-memory only and reset when StageFit quits. The same behavior applies to the shortcut, recognized title-bar double-clicks, and the optional green-button replacement.
 
 StageFit reserves an estimated Stage Manager strip rather than querying a documented exact workspace size. On custom title bars, macOS may handle double-click natively. The utility never needs network access and does not store window titles or mouse events.
 
@@ -40,7 +42,7 @@ StageFit reserves an estimated Stage Manager strip rather than querying a docume
 
 ```text
 StageFit/
-├── Sources/StageFit/           # Native AppKit utility + window handling
+├── Sources/StageFit/           # Native AppKit utility + window handling, toggle snapshot
 ├── Resources/Info.plist        # Bundle metadata and copyright
 ├── Scripts/                    # Build, test, check, distributable ZIP
 ├── Tests/main.swift            # Deterministic geometry regression tests

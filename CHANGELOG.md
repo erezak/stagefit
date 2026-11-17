@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.5.0 — 2026-11-17
+- Added per-window fit/restore toggling across keyboard shortcut, title-bar double-click, and optional green-button interception.
+- Restoring is only allowed while the window still matches StageFit's last applied frame; manually resizing or moving a window starts a fresh fit cycle on the next activation.
+- Added toggle regression tests, including manual resize/move invalidation.
+
 ## 1.4.1 — 2026-11-17
 - Licensed the project under MIT, with copyright attributed to Erez Korn.
 - Clarified license information in the README and updated the About panel copyright text.

@@ -7,6 +7,7 @@ trap 'rm -rf "$TMP_DIR"' EXIT
 # The pure geometry code can be tested without macOS or Accessibility grants.
 swiftc -swift-version 5 \
   "$ROOT/Sources/StageFit/WindowLayout.swift" \
+  "$ROOT/Sources/StageFit/WindowToggleSnapshot.swift" \
   "$ROOT/Tests/main.swift" \
   -o "$TMP_DIR/stagefit-layout-tests"
 "$TMP_DIR/stagefit-layout-tests"

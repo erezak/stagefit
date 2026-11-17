@@ -1,5 +1,7 @@
 import Foundation
+#if canImport(CoreGraphics)
 import CoreGraphics
+#endif
 
 /// Pure coordinate and sizing calculations used by WindowFitter.
 /// AX coordinates are top-left-based; AppKit screen coordinates are bottom-left-based.
